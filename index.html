@@ -40,7 +40,6 @@
             padding: 5px;
         }
         body {
-            box-sizing: border-box;
             padding: 0;
             margin: 0;
         }
@@ -51,7 +50,7 @@
     <div><input checked type="radio" name="board" id="" value="4">4</div>
     <div><input type="radio" name="board" id="" value="8">8</div>
     <div><input type="radio" name="board" id="" value="10">10</div>
-    <button onclick="read()">read board size</button>    </div> <br>
+    <button onclick="read()">Start</button>    </div> <br>
     <div class="container">
         <div id="game-board" class="row"></div>
     </div>
@@ -73,10 +72,10 @@ function emojiArr (nr) {
 }
 
         function read() {
-            document.querySelector('.alma').style.display="none";
+            document.querySelector('#game-board').innerHTML = "";
             let size = document.querySelector('input[type="radio"]:checked').value
             document.body.style.setProperty('--colnr',size)
-            document.body.style.setProperty('--cell',((windowwidth-30)/size)+'px')
+            document.body.style.setProperty('--cell',windowwidth/size/1.5+'px')
             console.log(size);
             let nr = emojiArr(size)
             lista = [...nr,...nr]
